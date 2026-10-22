@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p id="demo">This paragraph is changed once you press the button</p>
+    <button onclick="chagneText()">Press Me</button>
+    <hr>
+
+    <div id="container">
+        <p id="font">This text is inside of a container</p>
+
+    </div>
+    <button onclick="changeBackground()">Press to change the background</button> <br>
+    <button onclick="changeFontSize()">Press to change the font size</button>
+    <hr>
+    <ol id="items">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ol>
+    <button onclick="addItem()">Add Item</button>
+    <button onclick="removeItem()">Remove Item</button>
+
+
+
+
+    <script>
+        //Task 2
+        function chagneText(){
+            document.getElementById("demo").innerText = "Refresh to get the old text"
+        }
+        //Task 3
+        function changeBackground(){
+            document.getElementById("container").style.backgroundColor = "red";
+        }
+        function changeFontSize(){
+            document.getElementById("font").style.fontSize = "20px";
+        }
+        //Task 4
+        const items = document.getElementById("items");
+        let current = 3
+        function addItem(){
+            current++;
+
+            const newItem = document.createElement('li');
+            newItem.textContent = "Item " + current;
+            items.appendChild(newItem);
+        }
+
+        function removeItem(){
+            items.lastElementChild.remove();
+        }
+    </script>
+</body>
+</html>

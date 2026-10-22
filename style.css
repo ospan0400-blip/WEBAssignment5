@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    background-color: aquamarine;
+    width: 100px;
+    margin: 10px; 
+}
+p, button, ol {
+    margin: 5px 5px;
+}
+
+/*Part 3*/
+#box {
+    background-color: #66eb75;
+    width: 200px;
+    height: 200px;
+    transition: background-color 0.3s ease;
+}
+
+#container {
+    display: block;
+    background-color: white;
+    width: 200px;
+    height: 200px;
+}

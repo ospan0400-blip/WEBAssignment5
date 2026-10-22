@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="box"></div>
+    <hr>
+
+    
+    <div id="container">
+        <input type="text" id="textInput" placeholder="Try typing something"> <br>
+        <span id="displayValue">...</span>
+    </div>
+    <hr>
+
+    <div id="container">
+         <h3>Basic Calculator</h3>
+
+        <input type="number" id="number1" placeholder="Input first number:">
+        <input type="number" id="number2" placeholder="Input second number:"> <br>
+
+        <button onclick="calculate('+')">+</button>
+        <button onclick="calculate('-')">-</button>
+        <button onclick="calculate('*')">*</button>
+        <button onclick="calculate('/')">/</button> <br>
+
+        <span id="result">Result is equal to: </span>
+        
+    </div>
+    <script>
+        //Task 5
+        const box = document.getElementById("box");
+
+        const color = '#66eb75';
+        const changedColor = '#eb6666';
+
+        box.addEventListener('mouseover', function(){
+            box.style.backgroundColor = changedColor;
+        });
+        box.addEventListener('mouseout', function(){
+            box.style.backgroundColor = color;
+        });
+
+        //Task 6
+        const textInput = document.getElementById("textInput");
+        const displayValue = document.getElementById("displayValue");
+
+        textInput.addEventListener('keyup', function(){
+            if (textInput.value == ''){
+                displayValue.textContent = '...';
+            }
+            else {
+                displayValue.textContent = textInput.value;
+            }
+        })
+
+        //Task 7
+
+        function calculate(operator){
+            let a = Number(document.getElementById("number1").value);
+            let b = Number(document.getElementById("number2").value);
+            let result;
+
+            if(operator === '+'){
+                result = a + b;
+            }
+            else if(operator === '-'){
+                result = a - b;
+            }
+            else if(operator === '*'){
+                result = a * b;
+            }
+            else if(operator === '/'){
+                if (b === 0){
+                    document.getElementById("result").innerText = "Cant divide by zero!";
+                    return;
+                }
+                result = a / b;
+            }
+
+            document.getElementById("result").innerText = "Result is equal to: " + result;
+        }
+    </script>
+</body>
+</html>
